@@ -1513,30 +1513,57 @@ style slider_slider:
     variant "small"
     xsize 600
 
-screen simple_screen():
-    frame:
-        xalign 0.5 ypos 50
-        vbox:
-            text _("This is a screen.")
-            textbutton _("Okay"):
-                action Return(True)
+screen semana_screen():
 
-screen button_example():
-    frame:
-        xalign 0.5 ypos 50
 
-        has vbox
+
+    vbox:
+        xalign 0 ypos 200
+
 
         imagebutton:
             idle "botao mat"
             hover "botao mat"
-            action Notify(_("Você deciciu estudar Matemática"))
+            action Return(0)
 
-        textbutton "Estudar Linguagens":
-            action Notify(_("Você deciciu estudar Linguagens"))
+        imagebutton:
+            idle "botao ling"
+            hover "botao ling"
+            action Return(1)
 
-        textbutton "Estudar Ciências":
-            action Notify(_("Você deciciu estudar Ciências"))
+        imagebutton:
+            idle "botao nat"
+            hover "botao nat"
+            action Return(2)
+    vbox:
+        xpos 100 ypos 200
 
-        textbutton "Praticar Exercícios":
-            action Notify(_("Você deciciu praticar exercícios"))
+        imagebutton:
+            idle "botao spt"
+            hover "botao spt"
+            action Return(3)
+
+        imagebutton:
+            idle "botao hum"
+            hover "botao hum"
+            action Return(4)
+
+        imagebutton:
+            idle "botao art"
+            hover "botao art"
+            action Return(5)
+
+screen stats_screen():
+
+    text "[semana]" xalign 0.65 ypos 60 style "texto_semana"
+
+    text "[score_mat]" xalign 0.426 ypos 30 style "texto_stats"
+    text "[score_ling]" xalign 0.492 ypos 30 style "texto_stats"
+    text "[score_hum]" xalign 0.558 ypos 30 style "texto_stats"
+    text "[score_nat]" xalign 0.426 ypos 90 style "texto_stats"
+    text "[score_art]" xalign 0.492 ypos 90 style "texto_stats"
+    text "[score_spt]" xalign 0.558 ypos 90 style "texto_stats"
+
+    $ stress_n = stress//20
+
+    image "stress [stress_n].png" xalign 0.335 ypos 45 zoom 0.9
