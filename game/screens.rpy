@@ -538,7 +538,7 @@ style return_button:
 
 ## About screen ################################################################
 ##
-## This screen gives credit and copyright information about the game and Ren'Py.
+## This screen gives credit and copyright infornation about the game and Ren'Py.
 ##
 ## There's nothing special about this screen, and hence it also serves as an
 ## example of how to make a custom screen.
@@ -1523,47 +1523,156 @@ screen semana_screen():
 
         imagebutton:
             idle "botao mat"
-            hover "botao mat"
+            hover "botao math"
             action Return(0)
 
         imagebutton:
             idle "botao ling"
-            hover "botao ling"
+            hover "botao lingh"
             action Return(1)
 
         imagebutton:
             idle "botao nat"
-            hover "botao nat"
+            hover "botao nath"
             action Return(2)
     vbox:
         xpos 100 ypos 200
 
         imagebutton:
             idle "botao spt"
-            hover "botao spt"
+            hover "botao spth"
             action Return(3)
 
         imagebutton:
             idle "botao hum"
-            hover "botao hum"
+            hover "botao humh"
             action Return(4)
 
         imagebutton:
             idle "botao art"
-            hover "botao art"
+            hover "botao arth"
             action Return(5)
 
 screen stats_screen():
 
-    text "[semana]" xalign 0.65 ypos 60 style "texto_semana"
+    if semana < 10:
+        image "calendar [semana]" xalign 0.653 ypos 60
+    else:
+        $ semana0 = semana/10
+        $ semana1 = semana%10
+        image "calendar [semana0]" xalign 0.64 ypos 60
+        image "calendar [semana1]" xalign 0.666 ypos 60
 
-    text "[score_mat]" xalign 0.426 ypos 30 style "texto_stats"
-    text "[score_ling]" xalign 0.492 ypos 30 style "texto_stats"
-    text "[score_hum]" xalign 0.558 ypos 30 style "texto_stats"
-    text "[score_nat]" xalign 0.426 ypos 90 style "texto_stats"
-    text "[score_art]" xalign 0.492 ypos 90 style "texto_stats"
-    text "[score_spt]" xalign 0.558 ypos 90 style "texto_stats"
+    if score_mat < 10:
+        image "stats [score_mat]" xalign 0.426 ypos 30
+    elif score_mat < 100:
+        $ mat0 = score_mat/10
+        $ mat1 = score_mat%10
+        image "stats [mat0]" xalign 0.417 ypos 30
+        image "stats [mat1]" xalign 0.432 ypos 30
+    else:
+        $ mat0 = score_mat/100
+        $ mat1 = (score_mat%100)/10
+        $ mat2 = score_mat%10
+        image "stats [mat0]" xalign 0.41 ypos 30
+        image "stats [mat1]" xalign 0.421 ypos 30
+        image "stats [mat2]" xalign 0.437 ypos 30
 
-    $ stress_n = stress//20
 
-    image "stress [stress_n].png" xalign 0.335 ypos 45 zoom 0.9
+    if score_ling < 10:
+        image "stats [score_ling]" xalign 0.492 ypos 30
+    elif score_ling < 100:
+        $ ling0 = score_ling/10
+        $ ling1 = score_ling%10
+        image "stats [ling0]" xalign 0.486 ypos 30
+        image "stats [ling1]" xalign 0.502 ypos 30
+    else:
+        $ ling0 = score_ling/100
+        $ ling1 = (score_ling%100)/10
+        $ ling2 = score_ling%10
+        image "stats [ling0]" xalign 0.479 ypos 30
+        image "stats [ling1]" xalign 0.49 ypos 30
+        image "stats [ling2]" xalign 0.506 ypos 30
+
+    if score_hum < 10:
+        image "stats [score_hum]" xalign 0.561 ypos 30
+    elif score_hum < 100:
+        $ hum0 = score_hum/10
+        $ hum1 = score_hum%10
+        image "stats [hum0]" xalign 0.552 ypos 30
+        image "stats [hum1]" xalign 0.568 ypos 30
+    else:
+        $ hum0 = score_hum/100
+        $ hum1 = (score_hum%100)/10
+        $ hum2 = score_hum%10
+        image "stats [hum0]" xalign 0.545 ypos 30
+        image "stats [hum1]" xalign 0.556 ypos 30
+        image "stats [hum2]" xalign 0.572 ypos 30
+
+
+    if score_nat < 10:
+        image "stats [score_nat]" xalign 0.426 ypos 90
+    elif score_nat < 100:
+        $ nat0 = score_nat/10
+        $ nat1 = score_nat%10
+        image "stats [nat0]" xalign 0.417 ypos 90
+        image "stats [nat1]" xalign 0.432 ypos 90
+    else:
+        $ nat0 = score_nat/100
+        $ nat1 = (score_nat%100)/10
+        $ nat2 = score_nat%10
+        image "stats [nat0]" xalign 0.41 ypos 90
+        image "stats [nat1]" xalign 0.421 ypos 90
+        image "stats [nat2]" xalign 0.437 ypos 90
+
+
+    if score_art < 10:
+        image "stats [score_art]" xalign 0.492 ypos 90
+    elif score_art < 100:
+        $ art0 = score_art/10
+        $ art1 = score_art%10
+        image "stats [art0]" xalign 0.486 ypos 90
+        image "stats [art1]" xalign 0.502 ypos 90
+    else:
+        $ art0 = score_art/100
+        $ art1 = (score_art%100)/10
+        $ art2 = score_art%10
+        image "stats [art0]" xalign 0.479 ypos 90
+        image "stats [art1]" xalign 0.49 ypos 90
+        image "stats [art2]" xalign 0.506 ypos 90
+
+    if score_spt < 10:
+        image "stats [score_spt]" xalign 0.561 ypos 90
+    elif score_spt < 100:
+        $ spt0 = score_spt/10
+        $ spt1 = score_spt%10
+        image "stats [spt0]" xalign 0.552 ypos 90
+        image "stats [spt1]" xalign 0.568 ypos 90
+    else:
+        $ spt0 = score_spt/100
+        $ spt1 = (score_spt%100)/10
+        $ spt2 = score_spt%10
+        image "stats [spt0]" xalign 0.545 ypos 90
+        image "stats [spt1]" xalign 0.556 ypos 90
+        image "stats [spt2]" xalign 0.572 ypos 90
+
+    $ stress_n = max(stress/20, 0)
+    $ stress_n = min(stress_n, 4)
+
+    image "stress [stress_n]" xalign 0.335 ypos 45 zoom 0.9
+
+screen simulado_screen():
+
+    frame:
+        xalign 0.5 yalign 0.5
+        hbox:
+
+            imagebutton:
+                idle "botao art"
+                hover "botao art"
+                action Return(0)
+
+            imagebutton:
+                idle "botao spt"
+                hover "botao spt"
+                action Return(1)
