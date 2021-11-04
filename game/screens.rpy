@@ -1669,10 +1669,10 @@ screen simulado_screen():
 
             imagebutton:
                 idle "botao art"
-                hover "botao art"
+                hover "botao arth"
                 action Return(0)
 
             imagebutton:
                 idle "botao spt"
-                hover "botao spt"
+                hover "botao spth"
                 action Return(1)
