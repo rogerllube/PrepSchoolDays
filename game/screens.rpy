@@ -1663,16 +1663,71 @@ screen stats_screen():
 
 screen simulado_screen():
 
-    frame:
+
+    hbox:
         xalign 0.5 yalign 0.5
-        hbox:
+        imagebutton:
+            idle "botao SIM.png"
+            hover "botao SIM.png"
+            action Return(0)
+
+        imagebutton:
+            idle "botao NAO.png"
+            hover "botao NAO.png"
+            action Return(1)
+
+screen fds_screen():
+    vbox:
+        xalign 0 ypos 200
+
+
+        imagebutton:
+            idle "botao rev"
+            hover "botao revh"
+            action Return(0)
+
+        imagebutton:
+            idle "botao mus"
+            hover "botao mush"
+            action Return(1)
+
+        imagebutton:
+            idle "botao vid"
+            hover "botao vidh"
+            action Return(2)
+
+        imagebutton:
+            idle "botao des"
+            hover "botao desh"
+            action Return(3)
+    vbox:
+        xpos 100 ypos 200
+
+        imagebutton:
+            idle "botao sair"
+            hover "botao sairh"
+            action Return(4)
+
+        imagebutton:
+            idle "botao fes"
+            hover "botao fesh"
+            action Return(5)
+
+        imagebutton:
+            idle "botao spt"
+            hover "botao spth"
+            action Return(6)
+
+        imagebutton:
+            idle "botao desc"
+            hover "botao desch"
+            action Return(7)
+
+    if namorada == True:
+        vbox:
+            xpos 200 ypos 400
 
             imagebutton:
-                idle "botao art"
-                hover "botao arth"
-                action Return(0)
-
-            imagebutton:
-                idle "botao spt"
-                hover "botao spth"
-                action Return(1)
+                idle "botao nam"
+                hover "botao namh"
+                action Return(8)
