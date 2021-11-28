@@ -17,7 +17,7 @@ image smenu = "box simulado.png"
 image white = Solid("#fff")
 
 image bg teste = "escola.jpg"
-image bg casa = "casa.png"
+image bg casa = "casa.jpg"
 
 
 init python:
@@ -31,6 +31,7 @@ init python:
     semana = 1
     namorada = 0
     jogou = 0
+    inst = 0
 
 
 # The game starts here
@@ -404,6 +405,7 @@ label fds_mus:
     $ score_nat -= 2
     $ score_art += 2
     $ stress -= 2
+    $ inst += 1
 
     jump fds_done
 
@@ -415,7 +417,7 @@ label fds_vid:
     $ score_spt -= 1
     $ score_art += 1
     $ stress -= 3
-    $ jogou = 1
+    $ jogou += 1
 
     jump fds_done
 
@@ -551,6 +553,26 @@ label curso_calc:
     if score_hum > 100 and score_ling > 100 and stress < 60:
         jump final_dir
 
+    if score_spt > 200 and stress < 80:
+        jump final_edf
+
+    if score_art > 150 and stress < 80:
+        jump final_artcen
+
+    if score_mat > 150 and stress < 80:
+        jump final_mat
+
+    if score_hum > 150 and stress < 80:
+        jump final_fil
+
+    if score_mat > 100 and jogou > 25 and stress < 80:
+        jump final_bcc
+
+    if score_hum > 80 and inst > 20 and stress < 80:
+        jump final_mus
+
+
+
 
 
 label nota_fail:
@@ -573,7 +595,7 @@ label final_eng:
     l "A área só irei escolher depois de fazer o ciclo básico da faculdade, porém já tenho uma noção sobre cada uma delas que são oferecidas. Mal posso esperar para começar as aulas."
 
     scene white
-    centered "{color=#000}O ano árduo de estudos mostrou seus frutos, Link começará a cursar engenharia com grande entusiasmo nas próximas semanas. Mesmo sendo um curso exaustivo, Link mostrou ,durante o preparatório para o EN, a capacidade de superar qualquer barreira para se tornar um ótimo engenheiro."
+    centered "{color=#000}O ano árduo de estudos mostrou seus frutos, Link começará a cursar engenharia com grande entusiasmo nas próximas semanas. Mesmo sendo um curso exaustivo, Link mostrou, durante o preparatório para o EN, a capacidade de superar qualquer barreira para se tornar um ótimo engenheiro."
     jump ending
 
 label final_med:
@@ -606,26 +628,70 @@ label final_dir:
 
 label final_edf:
 
+    l "Mantive uma rotina saudável durante o meus dias de estudos, os exercícios físicos que fiz foram de grande ajuda para controlar minha saúde física e mental porque ficar sentado na cadeira toda hora pode estressar muito."
+    l "Hoje é o dia do resultado do EN, daqui a alguns minutos sai os resultados."
+    l "{cps=1}....."
+    l "PASSEI!!!"
+    l "Eu realmente não esperava escolher educação física, porém decidi seguir nessa área porque aprendi a importância dos exercícios físicos."
+
+    scene white
+    centered "Link aprendeu a importância da rotina saudável durante seus estudos no cursinho Kirameki. A carreira de Educação Física é ampla, indo além do trabalho em academia. Agora Link estudará sobre as atividades físicas que ele tanto fez nesses últimos meses."
+
 
     jump ending
 
 label final_artcen:
+    l "Fiquei tão interessado em arte neste último ano que comecei a estudar essa área mesmo que não seja muito cobrada no EN. Porém eu não sabia que existia cursos dessa área, já que não são muito comentadas pelo pessoal."
+    l " Hoje é o dia do resultado do EN, daqui a alguns minutos sai os resultados."
+    l "{cps=1}....."
+    l "PASSEI!!!"
+    l "Fiquei muito feliz por ter descoberto que existe o curso de Artes Cênicas quando fui fazer a inscrição, agora poderei estudar mais profundamente as produções artísticas."
+
+    scene white
+    centered " Link descobriu a área dos seus sonhos. Com a sua grande dedicação, ele tornou-se um grande diretor de vídeos, incentivando a produção nacional com suas obras."
 
     jump ending
 
 label final_mat:
-
+    l "Hoje vai sair o resultado do EN."
+    l "{cps=1}....."
+    l "PASSEI no curso de Bacharelado em Matemática."
+    l "O professor X foi um dos melhores professores que eu já tive. Ele se importa bastante com o desenvolvimento do raciocínio lógico em vez de lotar as aulas de conteúdo para decorar resolução, graças a ele, fiquei bastante interessado em Matemática."
+    scene white
+    centered "Link descobriu a beleza da Matemática durante seus estudos no cursinho Kirameki. O seu entusiasmo nos estudos tornou-se famoso no mundo acadêmico, com pesquisas excelentes e aulas bastante adoradas pelos alunos de graduação."
     jump ending
 
 label final_fil:
+    l "Hoje vai sair o resultado do EN."
+    l "{cps=1}....."
+    l "PASSEI no curso de Filosofia."
+    l "As aulas de redação e de Filosofia e Sociologia me motivaram a questionar e a argumentar. Depois de uma conversa com os professores, decidi que o curso de Filosofia seria o melhor para mim."
+
+    scene white
+    centered "[nome_pers] começou a desenvolver o seu lado crítico neste último ano. O curso de Filosofia é onde ele aprofundará no estudo de filósofos de várias eras, além de desenvolver a sua lógica e argumentação. Tempos depois, ele tornou-se um grande analista de várias obras, além de escritor de artigos nas revistas."
 
     jump ending
 
 label final_bcc:
+    l "Vou jogar aqui uma visual novel até sair o resultado do EN. Melhor relaxar lendo do que ficar ansioso com o resultado."
+    l "{cps=1}....."
+    l "Parece que chegou a hora do resultado ficar disponível no site, vou lá ver"
+    l "PASSEI!!!"
+    l "Depois de ter jogado bastante videogame nesse último ano, percebi que fiquei interessado em como programar, passei a ficar vendo como funciona sites e aplicativos."
+    l "Ciência da Computação é o curso perfeito para eu entender toda a base de como funciona o computador e de como utilizá-lo para criar programas."
 
+    scene white
+    centered "Link passou a ter bastante interesse na lógica por trás dos programas durante seus estudos para o EN. Agora ele poderá focar os estudos nessa área enquanto desenvolve jogos como hobby."
     jump ending
 
 label final_mus:
+    l "Neste último ano percebi o quão importante a música é para mim, por isso decidi me inscrever em Música. Daqui a pouco sai o resultado do EN, espero que eu seja aprovado."
+    l "{cps=1}....."
+    l "PASSEI!!!"
+    l "Foi bem concorrida essa vaga, porque, mesmo não possuindo muitos inscritos como medicina, o número de vagas é bem pequeno. Bem, agora que passei, poderei me dedicar em estudar a parte teórica da música nas aulas além de praticar piano."
+
+    scene white
+    centered "Link descobriu que pode utilizar o hobby como carreira. Durante o curso de Música, ele fez vários trabalhos freelancer para ganhar experiência, agora ele é famoso pelo seu trabalho como compositor e participa em vários tipos de mídia, desde filmes até videogames"
 
     jump ending
 

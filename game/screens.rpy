@@ -1668,12 +1668,12 @@ screen simulado_screen():
         xalign 0.5 yalign 0.5
         imagebutton:
             idle "botao SIM.png"
-            hover "botao SIM.png"
+            hover "botao SIMh.png"
             action Return(0)
 
         imagebutton:
             idle "botao NAO.png"
-            hover "botao NAO.png"
+            hover "botao NAOh.png"
             action Return(1)
 
 screen fds_screen():
