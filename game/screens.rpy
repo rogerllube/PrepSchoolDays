@@ -1723,7 +1723,7 @@ screen fds_screen():
             hover "botao desch"
             action Return(7)
 
-    if namorada == True:
+    if namorada == True and semana%5 != 0:
         vbox:
             xpos 200 ypos 400
 

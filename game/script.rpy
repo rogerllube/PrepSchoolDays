@@ -11,6 +11,23 @@ define p = Character("Professor",
                     who_color = "#00f",
                     what_color = "#000")
 
+define i = Character("[nome_garota]",
+                    who_color = "#800080",
+                    what_color = "#000")
+
+define t = Character("Tia da Cantina",
+                    who_color = "#f00",
+                    what_color = "#000")
+
+define x = Character("[nome_garoto]",
+                    who_color = "#5e2129",
+                    what_color = "#000")
+
+define a = Character("Todos",
+                    who_color = "000",
+                    what_color = "000")
+
+
 image fmenu = "menu esquerda.png"
 image tmenu = "menu superior.png"
 image smenu = "box simulado.png"
@@ -32,6 +49,12 @@ init python:
     namorada = 0
     jogou = 0
     inst = 0
+    saiu = 0
+    amigos = 0
+    esporte = 0
+    simulado = 0
+    nome_garota = "Garota Desconhecida"
+    nome_garoto = "Xirrark"
 
 
 # The game starts here
@@ -43,7 +66,9 @@ label start:
         xzoom 1.42 yzoom 1.2
         xalign 0.5
 
-    show professor intro at right
+    show professor intro:
+        xalign 0
+        zoom 0.2
 
 
 
@@ -241,6 +266,8 @@ label simulado:
 
 label simulado_sim:
 
+    $ simulado += 1
+
     scene bg teste:
         xzoom 1.42 yzoom 1.2
         xalign 0.5
@@ -331,6 +358,9 @@ label simulado_calc:
         l "O que estou fazendo aqui? Não aguento essa situação, vou direto para casa."
         l "Preciso de um tempo para pensar no que eu posso fazer."
         jump simulado_fail
+
+    if simulado == 2:
+        jump evento_amigos_1
     jump write_log
 
 label simulado_fail:
@@ -424,13 +454,11 @@ label fds_vid:
 label fds_des:
 
     l "Desenhar vai ser bem importante para me manter em prática mesmo durante o ano do EN"
-    $ score_mat += 1
-    $ score_hum += 1
     $ score_nat += 1
-    $ score_ling += 1
-    $ score_spt -= 1
+    $ score_ling -= 2
+    $ score_spt -= 2
     $ score_art += 4
-    $ stress -= 2
+    $ stress -= 1
 
     jump fds_done
 
@@ -444,7 +472,10 @@ label fds_sair:
     $ score_spt -= 1
     $ score_art -= 1
     $ stress -= 6
-
+    if amigos == 1:
+        $ saiu += 1
+    if saiu == 8:
+        jump inicio_namoro
     jump fds_done
 
 label fds_fes:
@@ -465,6 +496,7 @@ label fds_esp:
     l "Também é importante praticar esportes para manter minha saúde"
     $ score_spt += 5
     $ stress -= 3
+    $ esporte += 1
 
     jump fds_done
 
@@ -538,42 +570,44 @@ label EN:
 
 label curso_calc:
 
-    if (score_mat + score_nat + score_hum + score_ling) < 200:
-        jump nota_fail
+    if esporte >= 30 and score_mat > 50 and score_nat > 50 and score_ling > 50 and score_hum > 50 and stress < 40:
+        jump final_spt
 
-    if (score_mat + score_nat + score_hum + score_ling) > 200 and stress > 80:
-        jump stress_fail
+    if jogou >= 30 and score_mat > 50 and score_nat > 50 and score_ling > 50 and score_hum > 50 and stress < 40:
+        jump final_espt
 
-    if score_mat > 100 and score_nat > 100 and score_hum > 80 and score_ling > 80 and stress < 80:
-        jump final_med
-
-    if score_mat > 100 and score_nat > 100 and stress < 80:
-        jump final_eng
-
-    if score_hum > 100 and score_ling > 100 and stress < 60:
-        jump final_dir
-
-    if score_spt > 200 and stress < 80:
-        jump final_edf
-
-    if score_art > 150 and stress < 80:
-        jump final_artcen
-
-    if score_mat > 150 and stress < 80:
-        jump final_mat
-
-    if score_hum > 150 and stress < 80:
-        jump final_fil
-
-    if score_mat > 100 and jogou > 25 and stress < 80:
+    if score_mat > 100 and score_ling > 100 and score_hum > 70 and score_nat > 70 and jogou >= 15 and stress < 60:
         jump final_bcc
 
-    if score_hum > 80 and inst > 20 and stress < 80:
+    if score_art > 110 and score_hum > 80 and score_mat > 70 and score_ling > 50 and score_nat > 50 and inst >= 20 and stress < 60:
         jump final_mus
 
+    if score_mat > 90 and score_nat > 100 and score_hum > 80 and score_ling > 100 and stress < 60:
+        jump final_med
 
+    if score_mat > 110 and score_nat > 110 and score_hum > 60 and score_ling > 60 and stress < 60:
+        jump final_eng
 
+    if score_hum > 110 and score_ling > 110 and score_hum > 60 and score_ling > 60 and stress < 60:
+        jump final_dir
 
+    if score_spt > 120 and score_mat > 60 and score_nat > 60 and score_ling > 60 and score_hum > 60 and stress < 60:
+        jump final_edf
+
+    if score_art > 130 and score_mat > 60 and score_nat > 60 and score_hum > 60 and score_ling > 60 and stress < 60:
+        jump final_artcen
+
+    if score_mat > 150 and score_nat > 50 and score_hum > 50 and score_ling > 50 and stress < 60:
+        jump final_mat
+
+    if score_hum > 150 and score_nat > 50 and score_mat > 50 and score_ling > 50 and stress < 60:
+        jump final_fil
+
+    elif stress >= 60:
+        jump stress_fail
+
+    else:
+        jump nota_fail
 
 label nota_fail:
     l "Não obtive a nota mínima nem para me candidatar a uma vaga. Por causa do meu péssimo desempenho, terei que começar a trabalhar a fim de bancar um cursinho melhor, já que meus pais não irão pagar um outro cursinho."
@@ -702,6 +736,74 @@ label final_spt:
 label final_espt:
 
     jump ending
+
+label evento_amigos_1:
+
+    l "Depois de fazer esse simulado, já comecei a bolar estratégias de provas. Não adianta nada eu estudar muito se eu não responder as questões dentro do tempo."
+    l "Irei comprar uma coxinha na cantina antes de ir para casa. Só tem uma pessoa na minha frente, não ficarei tanto tempo aqui e"
+    l "{cps=1}....."
+    l "Aquela garota está comprando uma taça gigante de sorvete!"
+    l "Nunca vi essa opção no menu, como sabia que existe esse sundae gigante?"
+    i "Ah, ficou curioso com essa sobremesa divina? Depois de eu pedir sorvete com os mesmos complementos várias vezes ano passado, a tia da cantina até decorou os sabores e até batizou com meu nome."
+    l "Incrível, vou até pedir um pra mim."
+    l "Tia, quanto custa aquela taça de sorvete?"
+    t "Parece que ficou curioso com uma de minhas obras primas. Bem, o preço é 15 reais."
+    l "Ok, vou querer um, preciso matar minha vontade."
+    t "Vai demorar um pouco, mas logo estará pronto."
+    "{cps=1}........"
+    t "Aqui está, o sorvete da Iliana para o gato curioso."
+    $ nome_garota = "Iliana"
+    l "Muito obrigado, mal posso esperar pra comer."
+    i "{size=32}OOOOOI GATO CURIOSO,{/size} vem aqui na mesa comer seu sorvete."
+    l "Gato curioso..."
+    l "Não posso negar, sou bastante curioso quando o assunto é comida."
+    l "Pelo menos terei companhia enquanto como esse sorvete gigante."
+    i "Olá, mais um companheiro do sorvete Iliana, presumo que já deva saber meu nome."
+    i "Esse aquie é meu irmão mais novo, Xirrark. Ele não gosta tanto de doces muito doces, sabe como é, pessoas com gosto muito refinado que só comem doces de chá verde."
+    x "Olá, sou Xirrark. Só avisando que também gosto de sorvete, porém não sou fã de colocar um monte de calda, confeitos, chocolate, paçoca, entre outras opções."
+    x "Prefiro uma combinação simples sem muito exagero, ao contrário da minha irmã, como você pode ter notado."
+    i "Prefiro comer doce com bastante doce e com um bom custo benefício."
+    i "Meu irmãozinho gosta daquele sorvete de neve que fica perto daqui. O potinho tem uma cara fofinha, mas o preço é praticamente igual ao daqui e com menos conteúdo."
+    x "Parece que alguém não sabe apreciar o sabor refinado do sorvete com mochi, aquilo sim é uma combinação divina que vale o preço a ser pago."
+    x "..."
+    x "Ah, peço desculpas pela longa conversa sobre sorvete."
+    l "Foi muito bom esse papo, deu até vontade de comer esse sorvete de neve."
+    l "Desculpe por demorar a me apresentar, mas sou [nome_pers]. Prazer em conhecê-los, Iliana e Xirrark."
+    x "Sem problemas."
+    i "Já que terminamos as apresentações, o que está achando do meu sorvete."
+    l "Muito bom e muito doce, só não sei se vou conseguir terminar essa montanha de sorvete."
+    p "Olha só, parece que alguém tentou se desafiar com o sorvete Iliana."
+    l "Olá professor. Pelo visto você conhece essa enorme taça."
+    p "É um famoso desafio aqui no cursinho Kirameki, mesmo que só tenha um ano de existência. Pelo visto já conhece a origem da lenda."
+    l "E foi por causa dela que estou sofrendo com esse desafio congelante."
+    i "Comer meu sorvete não é pra fazer as pessoas sofrerem, mas parece que sou a única que come tudo sem esforço."
+    p "Enquanto vocês estão comendo sorvete, irei deixar aqui o gabarito do simulado de hoje. Qualquer dúvida só chamar os professores que eles estarão preparados para atendê-los."
+    l "Já estava até esquecendo que fizemos simulado hoje. Antes de eu ir embora com a barriga cheia, podem passar o contato de vocês?"
+    x "Claro. O número é esse aqui."
+    i "Terminei de comer. Deixa eu digitar o número no seu celular e..."
+    i "Pronto. E se prepare para a conversa por sticker com meu irmão. Ele ama mandar stickers fofinhos pelo teregran."
+    l "Opa, mais uma fonte de sticker pra mim então."
+    l "Obrigado pelos contatos vou indo agora para conferir em casa o gabarito, até mais."
+    "{color=#000}Xirrark e Iliana" "Até mais."
+    $ amigos = 1
+
+    jump semana
+
+label inicio_namoro:
+
+    x "Pessoal, vou ao banheiro, já volto."
+    l "Espera, essa é a minha chance de me confessar para a Iliana. Preciso aproveitar essa oportunidade."
+    l "Iliana, preciso falar uma coisa para você. Gostaria de {cps=1}..."
+    i "Ah, [nome_pers], quer namorar comigo?"
+    l "...namorar comigo... espera, eu ia perguntar isso. E você foi tão direta ao ponto que fiquei surpreso."
+    i "Então suponho que seja um sim."
+    l "Com certeza. Só quero saber como teve essa coragem de se confessar em um instante."
+    i "Simples, usei meu irmão como parceiro de treino e fiquei falando com ele várias vezes até eu conseguir dizer sem dificuldades."
+    i "Além disso, ele está ali atrás da árvore pra dar uma brecha pra nós."
+    x "Parece que tudo correu bem, irmã."
+    l "Vocês são a melhor dupla de irmãos que eu já vi."
+    $ namorada = 1
+
 
 label ending:
 

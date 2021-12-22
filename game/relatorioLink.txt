@@ -1,0 +1,372 @@
+Inicio do relatorio
+
+
+Semana: 1
+Matematica: 35
+Linguagens: 32
+Natureza: 34
+Humanas: 32
+Arte: 31
+Esportes: 27
+Stress: 8
+
+
+Semana: 2
+Matematica: 40
+Linguagens: 34
+Natureza: 38
+Humanas: 34
+Arte: 32
+Esportes: 24
+Stress: 16
+
+
+Semana: 3
+Matematica: 45
+Linguagens: 36
+Natureza: 42
+Humanas: 36
+Arte: 33
+Esportes: 21
+Stress: 24
+
+
+Semana: 4
+Matematica: 50
+Linguagens: 38
+Natureza: 46
+Humanas: 38
+Arte: 34
+Esportes: 18
+Stress: 32
+
+
+Semana: 5
+Matematica: 54
+Linguagens: 39
+Natureza: 49
+Humanas: 39
+Arte: 34
+Esportes: 15
+Stress: 37
+
+
+Semana: 6
+Matematica: 59
+Linguagens: 41
+Natureza: 53
+Humanas: 41
+Arte: 35
+Esportes: 12
+Stress: 45
+
+
+Semana: 7
+Matematica: 64
+Linguagens: 43
+Natureza: 57
+Humanas: 43
+Arte: 36
+Esportes: 9
+Stress: 53
+
+
+Semana: 8
+Matematica: 69
+Linguagens: 45
+Natureza: 61
+Humanas: 45
+Arte: 37
+Esportes: 6
+Stress: 61
+
+
+Semana: 9
+Matematica: 74
+Linguagens: 47
+Natureza: 65
+Humanas: 47
+Arte: 38
+Esportes: 3
+Stress: 69
+
+
+Inicio do relatorio
+
+
+Semana: 1
+Matematica: 35
+Linguagens: 32
+Natureza: 34
+Humanas: 32
+Arte: 31
+Esportes: 27
+Stress: 8
+
+
+Semana: 2
+Matematica: 40
+Linguagens: 34
+Natureza: 38
+Humanas: 34
+Arte: 32
+Esportes: 24
+Stress: 16
+
+
+Semana: 3
+Matematica: 45
+Linguagens: 36
+Natureza: 42
+Humanas: 36
+Arte: 33
+Esportes: 21
+Stress: 24
+
+
+Semana: 4
+Matematica: 50
+Linguagens: 38
+Natureza: 46
+Humanas: 38
+Arte: 34
+Esportes: 18
+Stress: 32
+
+
+Semana: 5
+Matematica: 54
+Linguagens: 39
+Natureza: 49
+Humanas: 39
+Arte: 34
+Esportes: 15
+Stress: 37
+
+
+Semana: 6
+Matematica: 59
+Linguagens: 41
+Natureza: 53
+Humanas: 41
+Arte: 35
+Esportes: 12
+Stress: 45
+
+
+Semana: 7
+Matematica: 64
+Linguagens: 43
+Natureza: 57
+Humanas: 43
+Arte: 36
+Esportes: 9
+Stress: 53
+
+
+Semana: 8
+Matematica: 69
+Linguagens: 45
+Natureza: 61
+Humanas: 45
+Arte: 37
+Esportes: 6
+Stress: 61
+
+
+Semana: 9
+Matematica: 74
+Linguagens: 47
+Natureza: 65
+Humanas: 47
+Arte: 38
+Esportes: 3
+Stress: 69
+
+
+Inicio do relatorio
+
+
+Semana: 1
+Matematica: 35
+Linguagens: 32
+Natureza: 34
+Humanas: 32
+Arte: 31
+Esportes: 27
+Stress: 8
+
+
+Semana: 2
+Matematica: 40
+Linguagens: 34
+Natureza: 38
+Humanas: 34
+Arte: 32
+Esportes: 24
+Stress: 16
+
+
+Semana: 3
+Matematica: 45
+Linguagens: 36
+Natureza: 42
+Humanas: 36
+Arte: 33
+Esportes: 21
+Stress: 24
+
+
+Semana: 4
+Matematica: 50
+Linguagens: 38
+Natureza: 46
+Humanas: 38
+Arte: 34
+Esportes: 18
+Stress: 32
+
+
+Semana: 5
+Matematica: 54
+Linguagens: 39
+Natureza: 49
+Humanas: 39
+Arte: 34
+Esportes: 15
+Stress: 37
+
+
+Semana: 6
+Matematica: 59
+Linguagens: 41
+Natureza: 53
+Humanas: 41
+Arte: 35
+Esportes: 12
+Stress: 45
+
+
+Semana: 7
+Matematica: 64
+Linguagens: 43
+Natureza: 57
+Humanas: 43
+Arte: 36
+Esportes: 9
+Stress: 53
+
+
+Semana: 8
+Matematica: 69
+Linguagens: 45
+Natureza: 61
+Humanas: 45
+Arte: 37
+Esportes: 6
+Stress: 61
+
+
+Semana: 9
+Matematica: 74
+Linguagens: 47
+Natureza: 65
+Humanas: 47
+Arte: 38
+Esportes: 3
+Stress: 69
+
+
+Inicio do relatorio
+
+
+Semana: 1
+Matematica: 35
+Linguagens: 32
+Natureza: 34
+Humanas: 32
+Arte: 31
+Esportes: 27
+Stress: 8
+
+
+Semana: 2
+Matematica: 40
+Linguagens: 34
+Natureza: 38
+Humanas: 34
+Arte: 32
+Esportes: 24
+Stress: 16
+
+
+Semana: 3
+Matematica: 45
+Linguagens: 36
+Natureza: 42
+Humanas: 36
+Arte: 33
+Esportes: 21
+Stress: 24
+
+
+Semana: 4
+Matematica: 50
+Linguagens: 38
+Natureza: 46
+Humanas: 38
+Arte: 34
+Esportes: 18
+Stress: 32
+
+
+Semana: 5
+Matematica: 54
+Linguagens: 39
+Natureza: 49
+Humanas: 39
+Arte: 34
+Esportes: 15
+Stress: 37
+
+
+Semana: 6
+Matematica: 59
+Linguagens: 41
+Natureza: 53
+Humanas: 41
+Arte: 35
+Esportes: 12
+Stress: 45
+
+
+Semana: 7
+Matematica: 64
+Linguagens: 43
+Natureza: 57
+Humanas: 43
+Arte: 36
+Esportes: 9
+Stress: 53
+
+
+Semana: 8
+Matematica: 69
+Linguagens: 45
+Natureza: 61
+Humanas: 45
+Arte: 37
+Esportes: 6
+Stress: 61
+
+
+Semana: 9
+Matematica: 74
+Linguagens: 47
+Natureza: 65
+Humanas: 47
+Arte: 38
+Esportes: 3
+Stress: 69
+
+
