@@ -73,6 +73,7 @@ label start:
     show professor intro:
         xalign 0
         zoom 0.2
+        yalign 0.09
 
 
 
@@ -446,6 +447,8 @@ label fds_rev:
 
 label fds_mus:
 
+    show link mus at top with dissolve:
+        zoom 0.6
     l "Não posso esquecer de praticar meus instrumentos"
     $ score_mat += 1
     $ score_nat -= 2
@@ -632,7 +635,7 @@ label nota_fail:
 
     scene white
     centered "{color=#000}[nome_pers] não obteve um bom desempenho neste ano, a decisão de trocar de cursinho pode não ser a melhor possível, porém ele agora possui o objetivo de tentar novamente em um futuro próximo. Talvez o trabalho de meio período seja uma boa experiência para ele. Somente o destino irá dizer.{/color}"
-    fail = 1
+    $ fail = 1
     jump ending
 
 label stress_fail:
@@ -767,7 +770,7 @@ label final_spt:
     l "Eu consegui acompanhar os treinos puxados a ponto de ir bem em várias competições estaduais. Além disso, passei no curso técnico em gestão pública já que meu treinador sugeriu continuar os estudos."
 
     scene white
-    centered "[nome_pers] curiosamente se tornou um atleta nos próximos anos. A sugestão de continuar os estudos foi importante para estender a sua carreira no esporte, já que depois de se aposentar da competição, [nome_pers] criou o programa regional de apoio à vida esportiva, promovendo ajuda aos jovens para auxiliá-los na vida educacional e esportiva."
+    centered "[nome_pers] curiosamente se tornou um atleta nos próximos anos. A sugestão de continuar os estudos foi importante para estender a sua carreira no esporte, já que depois de se aposentar da competição, [nome_pers] criou o programa regional de apoio à vida esportiva, auxiliando os jovens a seguirem na carreira do esporte."
     $ pro = 1
     jump ending
 
@@ -790,12 +793,12 @@ label final_espt:
     centered "[nome_pers] aprendeu a importância do plano B graças à comunidade dos anime fighters."
     centered "Com sua dedicação, ele começou a ir bem em vários torneios nacionais, mas ele não largou o curso técnico a fim de ter um emprego para bancar as viagens internacionais."
     centered "[nome_pers] se tornou um grande jogador e conheceu vários países ao longo de sua carreira."
-    pro = 1
+    $ pro = 1
     jump ending
 
 label evento_amigos_0:
 
-    scene bg teste
+    scene bg sorv:
     l "Depois de fazer esse simulado, já comecei a bolar estratégias de provas. Não adianta nada eu estudar muito se eu não responder as questões dentro do tempo."
     l "Irei comprar uma coxinha na cantina antes de ir para casa. Só tem uma pessoa na minha frente, não ficarei tanto tempo aqui e"
     l "{cps=1}....."
@@ -811,12 +814,18 @@ label evento_amigos_0:
     t "Aqui está, o sorvete da Iliana para o gato curioso."
     $ nome_garota = "Iliana"
     l "Muito obrigado, mal posso esperar pra comer."
+    show iliana at left:
+        zoom 0.2
+        yalign 0.0
     i "{size=32}OOOOOI GATO CURIOSO,{/size} vem aqui na mesa comer seu sorvete."
     l "Gato curioso..."
     l "Não posso negar, sou bastante curioso quando o assunto é comida."
     l "Pelo menos terei companhia enquanto como esse sorvete gigante."
     i "Olá, mais um companheiro do sorvete Iliana, presumo que já deva saber meu nome."
-    i "Esse aquie é meu irmão mais novo, Xirrark. Ele não gosta tanto de doces muito doces, sabe como é, pessoas com gosto muito refinado que só comem doces de chá verde."
+    i "Esse aqui é meu irmão mais novo, Xirrark. Ele não gosta tanto de doces muito doces, sabe como é, pessoas com gosto muito refinado que só comem doces de chá verde."
+    show xirrark at right:
+        zoom 0.2
+        yalign 0.0
     x "Olá, sou Xirrark. Só avisando que também gosto de sorvete, porém não sou fã de colocar um monte de calda, confeitos, chocolate, paçoca, entre outras opções."
     x "Prefiro uma combinação simples sem muito exagero, ao contrário da minha irmã, como você pode ter notado."
     i "Prefiro comer doce com bastante doce e com um bom custo benefício."
@@ -827,15 +836,24 @@ label evento_amigos_0:
     l "Foi muito bom esse papo, deu até vontade de comer esse sorvete de neve."
     l "Desculpe por demorar a me apresentar, mas sou [nome_pers]. Prazer em conhecê-los, Iliana e Xirrark."
     x "Sem problemas."
-    i "Já que terminamos as apresentações, o que está achando do meu sorvete."
+    i "Já que terminamos as apresentações, o que está achando do meu sorvete?"
     l "Muito bom e muito doce, só não sei se vou conseguir terminar essa montanha de sorvete."
+    hide xirrark
+    show professor intro:
+        xalign 1.0
+        zoom 0.2
+        yalign 0.09
     p "Olha só, parece que alguém tentou se desafiar com o sorvete Iliana."
     l "Olá professor. Pelo visto você conhece essa enorme taça."
-    p "É um famoso desafio aqui no cursinho Kirameki, mesmo que só tenha um ano de existência. Pelo visto já conhece a origem da lenda."
+    p "É um famoso desafio aqui no cursinho Kirameki, mesmo que tenha menos de um ano de existência. Pelo visto já conhece a origem da lenda."
     l "E foi por causa dela que estou sofrendo com esse desafio congelante."
     i "Comer meu sorvete não é pra fazer as pessoas sofrerem, mas parece que sou a única que come tudo sem esforço."
     p "Enquanto vocês estão comendo sorvete, irei deixar aqui o gabarito do simulado de hoje. Qualquer dúvida só chamar os professores que eles estarão preparados para atendê-los."
     l "Já estava até esquecendo que fizemos simulado hoje. Antes de eu ir embora com a barriga cheia, podem passar o contato de vocês?"
+    hide professor intro
+    show xirrark at right:
+        zoom 0.2
+        yalign 0.0
     x "Claro. O número é esse aqui."
     i "Terminei de comer. Deixa eu digitar o número no seu celular e..."
     i "Pronto. E se prepare para a conversa por sticker com meu irmão. Ele ama mandar stickers fofinhos pelo teregran."
@@ -848,7 +866,9 @@ label evento_amigos_0:
 
 label evento_amigos_1:
 
-    scene bg teste
+    scene bg teste:
+        xzoom 1.42 yzoom 1.2
+        xalign 0.5
     x "Olá [nome_pers], tava pensando em te convidar para comer meu sorvete favorito já que na última vez você teve uns problemas para terminar o sorvete gigante."
     l "Aceito sim, mal posso esperar para comer o sorvete com mochi que você falou na última vez."
     l "A Iliana vai também?"
@@ -922,16 +942,17 @@ label evento_amigos_2:
     i "Não ia pedir o sorvete Iliana?"
     l "Verdade, mas dessa vez quero comer uma coxinha."
     i "Traidor..."
-
+    $ amigos = 3
     jump simulado_fim
 
 label evento_amigos_3:
 
     l "Faltam apenas algumas semanas para o EN. Mesmo depois de fazer vários simulados não estou 100% seguro."
-    $ amigos = 3
+    $ amigos = 4
 
 label inicio_namoro:
 
+    scene bg sorv
     x "Pessoal, vou ao banheiro, já volto."
     l "Espera, essa é a minha chance de me confessar para a Iliana. Preciso aproveitar essa oportunidade."
     l "Iliana, preciso falar uma coisa para você. Gostaria de {cps=1}..."
@@ -944,6 +965,7 @@ label inicio_namoro:
     x "Parece que tudo correu bem, irmã."
     l "Vocês são a melhor dupla de irmãos que eu já vi."
     $ namorada = 1
+    jump fds_done
 
 label ending:
 
@@ -960,6 +982,10 @@ label ending:
         centered "Mesmo depois de seguirem carreiras diferentes, Iliana e [nome_pers] mantiveram contato durante os estudos. Após a formatura, os dois foram contratados em sua área de formação."
         centeres "Anos depois, se casaram com uma bela cerimônia, é dito que cachoeiras escorriam pelos olhos de Xirrark."
 
-    centered "Acabou o jogo :´("
+    jump creditos
 
+label creditos:
+    centered "Obrigado por jogar PrepSchool Days"
+    centered "Creditos:"
+    centered "Roteiro: Naoto"
     return
