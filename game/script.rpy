@@ -6,7 +6,6 @@
 define l = Character("[nome_pers]",
                     what_color = "#000")
 
-
 define p = Character("Professor",
                     who_color = "#00f",
                     what_color = "#000")
@@ -27,11 +26,11 @@ define a = Character("Todos",
                     who_color = "000",
                     what_color = "000")
 
-
 image fmenu = "menu esquerda.png"
 image tmenu = "menu superior.png"
 image smenu = "box simulado.png"
 image white = Solid("#fff")
+image logo = "LogoFoG.png"
 
 image bg sorv = "sorveteria.png"
 image bg teste = "escola.jpg"
@@ -99,9 +98,6 @@ label start:
 
         if not nome_pers:
             nome_pers = "Link"
-        with open(os.path.join(renpy.config.gamedir, "relatorio" + nome_pers + ".txt"), 'a') as f:
-            f.write( 'Inicio do relatorio\n\n\n' )
-        f.close()
     hide professor
 
     jump semana
@@ -386,7 +382,7 @@ label simulado_fail:
 
     centered "{color=#000}Link decidiu dar um tempo e ficou em casa nesta semana.{/color}"
     $ semana += 1
-    jump write_log
+    jump semana
 
 label fds:
 
@@ -449,7 +445,7 @@ label fds_mus:
 
     show link mus at top with dissolve:
         zoom 0.6
-    l "Não posso esquecer de praticar meus instrumentos"
+    l "Devo aproveitar esse fim de semana para continuar treinando as minhas habilidades com violino."
     $ score_mat += 1
     $ score_nat -= 2
     $ score_art += 2
@@ -561,16 +557,6 @@ label fds_done:
 
     l "Acabou o final de semana."
     $ semana += 1
-
-    jump write_log
-
-label write_log:
-    python:
-
-        with open( os.path.join(renpy.config.gamedir, "relatorio" + nome_pers + ".txt" ), 'a') as f:
-            f.write('Semana: ' + str(semana-1) + '\nMatematica: ' + str(score_mat) + '\nLinguagens: ' + str(score_ling) + '\nNatureza: ' + str(score_nat) + '\nHumanas: ' + str(score_hum) + '\nArte: ' + str(score_art) + '\nEsportes: ' + str(score_spt))
-            f.write('\nStress: ' + str(stress) + '\n\n\n')
-        f.close()
 
     jump semana
 
@@ -752,7 +738,7 @@ label final_mus:
     l "Neste último ano percebi o quão importante a música é para mim, por isso decidi me inscrever em Música. Daqui a pouco sai o resultado do EN, espero que eu seja aprovado."
     l "{cps=1}....."
     l "PASSEI!!!"
-    l "Foi bem concorrida essa vaga, porque, mesmo não possuindo muitos inscritos como medicina, o número de vagas é bem pequeno. Bem, agora que passei, poderei me dedicar em estudar a parte teórica da música nas aulas além de praticar piano."
+    l "Foi bem concorrida essa vaga, porque, mesmo não possuindo muitos inscritos como medicina, o número de vagas é bem pequeno. Bem, agora que passei, poderei me dedicar em estudar a parte teórica da música nas aulas além de praticar violino."
 
     scene white
     centered "Link descobriu que pode utilizar o hobby como carreira. Durante o curso de Música, ele fez vários trabalhos freelancer para ganhar experiência, agora ele é famoso pelo seu trabalho como compositor e participa em vários tipos de mídia, desde filmes até videogames"
@@ -869,12 +855,18 @@ label evento_amigos_1:
     scene bg teste:
         xzoom 1.42 yzoom 1.2
         xalign 0.5
+    show xirrark at right:
+        zoom 0.2
+        yalign 0.0
     x "Olá [nome_pers], tava pensando em te convidar para comer meu sorvete favorito já que na última vez você teve uns problemas para terminar o sorvete gigante."
     l "Aceito sim, mal posso esperar para comer o sorvete com mochi que você falou na última vez."
     l "A Iliana vai também?"
     l "Ela tinha falado que não gosta de porções pequenas."
     x "Ela vai sim, só precisamos esperar ela voltar do banheiro."
     l "Falando nela, aqui está."
+    show iliana at left:
+        zoom 0.2
+        yalign 0.0
     i "Parece que todos estão aqui para comer sorvete. Estou precisando de açúcar depois desse simulado, então vamos logo."
     l "Acha que o sorvete de lá vai te satisfazer por completo?"
     l "Eu sei que você não gosta de porções pequenas."
@@ -901,11 +893,16 @@ label evento_amigos_1:
     i "Esse meu irmão que não aceita comidas muito doces..."
     l "Talvez eu peça uma coxinha em vez do sorvete, parece uma boa ideia."
     i "Traidor.."
+    hide iliana
+    hide xirrark
     $ amigos = 2
     jump simulado_fim
 
 label evento_amigos_2:
 
+    show xirrark at right:
+        zoom 0.2
+        yalign 0.0
     x "Oi [nome_pers], o que achou do simulado de hoje?"
     l "Foi uma prova meio desafiadora, porém estou conseguindo pegar o jeito para resolver a tempo"
     l "Falando em simulado, por que você escolheu filosofia? Com suas notas, poderia almejar um curso mais concorrido."
@@ -916,6 +913,9 @@ label evento_amigos_2:
     l "Por que ela saiu desses cursos?"
     x "Bem, o motivo foi...."
     x "Parece que minha irmã acaba de terminar o simulado, melhor deixar ela contar para você o que ela sentiu."
+    show iliana at left:
+        zoom 0.2
+        yalign 0.0
     i "Sobre o que meu irmãozinho e o gato curioso estão falando? O clima aqui não mostra que vocês estavam calados minutos atrás."
     x "O que acha de matar a curiosidade do gato e contar sua experiência na faculdade?"
     x "Especialmente a parte em que descobre que não gosta do curso."
@@ -942,20 +942,54 @@ label evento_amigos_2:
     i "Não ia pedir o sorvete Iliana?"
     l "Verdade, mas dessa vez quero comer uma coxinha."
     i "Traidor..."
+    hide iliana
+    hide xirrark
     $ amigos = 3
     jump simulado_fim
 
 label evento_amigos_3:
 
     l "Faltam apenas algumas semanas para o EN. Mesmo depois de fazer vários simulados não estou 100% seguro."
+    show professor intro:
+        xalign 1.0
+        zoom 0.2
+        yalign 0.09
+    p "[nome_pers], você parece meio procupado depois de ter feito o simulado de hoje. Pensando em alguma coisa complicada?"
+    l "Professor, estou pensando na possibilidade de eu não ir bem no dia da prova. Fico estudando e treinando nos simulados porém sinto que não é o suficiente"
+    p "Esse é um sentimento bem comum nas pessoas."
+    p "Não necessariamente relacionado ao EN, porém comum quando estamos preocupados com o desempenho em um evento que pode mudar o nosso futuro."
+    p "O importante é fazer os 3 seguintes passos: manter a calma, acreditar em si mesmo e aceitar os possíveis resultados."
+    l "Não entendi o terceiro passo, qual é a ideia dele?"
+    p "Vou começar a explicação com o primeiro e o segundo passos."
+    p "Os simulados que realizamos aqui no cursinho Kirameki servem para auxiliar os alunos nesses primeiros dois passos."
+    p "Manter a calma a fim de não perder a concentração durante a prova e deixar os estudantes confiantes de que eles conseguem resolver as questões."
+    p "Fazemos os simulados em intervalos fixos e elaboramos as provas de modo que a dificuldade seja mais elevada que a do EN"
+    l "Não entendo como fico preocupado sendo que estou conseguindo acompanhar os estudos aqui, parece que não é o suficiente apenas entender a matéria."
+    p "É aí que está o segredo do terceiro passo. Se a vaga no curso da faculdade fosse garantida com esses dois primeiros passos, o método de estudo que vários cursinhos e vídeos da internet comentam seria o suficiente, porém o número de vagas é limitado."
+    p "O que o aluno precisa saber é lidar com a possibilidade de fracassar, o que fazer caso isso ocorra e entender que é normal fracassar."
+    p "Tentar denovo no ano seguinte? Se candidatar para a segunda opção em vez da primeira a fim de ingressar na faculdade e fazer transferência caso veja uma oportunidade?"
+    p "Dar uma pausa para experienciar outros aspectos importantes da vida além do estudo?"
+    p "Esse passo 3 é importante para melhorar a performance dos passos 1 e 2, porque a pressão de ser obrigado a conseguir a vaga desaparece e o estudante pode focar em fazer uma boa prova."
+    l "Eu realmente não pensei nesse aspecto de lidar com a possibilidade de não conseguir, porque a Iliana já passou antes na faculdade."
+    l "Você pode usar o caso dela como uma outra forma de lidar com o fracasso. Tentar mais uma vez depois de ter escolhido um curso que não gostou é mais uma forma de continuar com a vida."
+    p "Portanto, meu conselho é não se cobrar para passar em apenas uma tentativa."
+    l "Obrigado professor. Encontrei um jeito de lidar com as minhas preocupações a fim de não prejudicar meu desempenho daqui a algumas semanas."
     $ amigos = 4
+    jump simulado_fim
 
 label inicio_namoro:
 
     scene bg sorv
+    show xirrark at right:
+        zoom 0.2
+        yalign 0.0
     x "Pessoal, vou ao banheiro, já volto."
+    hide xirrark
     l "Espera, essa é a minha chance de me confessar para a Iliana. Preciso aproveitar essa oportunidade."
     l "Iliana, preciso falar uma coisa para você. Gostaria de {cps=1}..."
+    show iliana at left:
+        zoom 0.2
+        yalign 0.0
     i "Ah, [nome_pers], quer namorar comigo?"
     l "...namorar comigo... espera, eu ia perguntar isso. E você foi tão direta ao ponto que fiquei surpreso."
     i "Então suponho que seja um sim."
@@ -986,6 +1020,15 @@ label ending:
 
 label creditos:
     centered "Obrigado por jogar PrepSchool Days"
-    centered "Creditos:"
+    show logo at center:
+        zoom 0.1
+        yalign 0.5
+    show text "{size=32}Créditos:" at top
+    pause 3
+    hide logo
     centered "Roteiro: Naoto"
+    centered "Programação: Rogério(Sir)"
+    centered "Cenário/UI: "
+    centered "Design de personagem: "
+    centered "Agradecimentos especiais: thegamelogicist"
     return
