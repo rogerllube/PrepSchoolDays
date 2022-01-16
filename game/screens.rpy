@@ -1725,7 +1725,7 @@ screen fds_screen():
 
     if namorada == True and semana%5 != 0:
         vbox:
-            xpos 200 ypos 400
+            xpos 200 ypos 407
 
             imagebutton:
                 idle "botao nam"

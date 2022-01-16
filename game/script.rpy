@@ -26,6 +26,7 @@ define a = Character("Todos",
                     who_color = "000",
                     what_color = "000")
 
+
 image fmenu = "menu esquerda.png"
 image tmenu = "menu superior.png"
 image smenu = "box simulado.png"
@@ -75,6 +76,7 @@ label start:
         yalign 0.09
 
 
+    play music musica
 
     p "Bom dia estudantes"
     p "A partir de hoje serei seu professor de matemática do curso preparatório para o Exame Nacional, o EN."
@@ -141,7 +143,8 @@ label semana:
 label semana_mat:
 
     show link mat at top with dissolve:
-        zoom 0.6
+        zoom 0.4
+        yalign 0.3
     l "Estudei Matematica"
     $ score_mat += 4
     $ score_hum += 1
@@ -154,7 +157,8 @@ label semana_mat:
 label semana_ling:
 
     show link lin at top with dissolve:
-        zoom 0.6
+        zoom 0.4
+        yalign 0.3
     l "Estudei Linguagens"
     $ score_mat += 0
     $ score_hum += 2
@@ -167,7 +171,8 @@ label semana_ling:
 label semana_nat:
 
     show link nat at top with dissolve:
-        zoom 0.6
+        zoom 0.4
+        yalign 0.3
     l "Estudei Ciencias da Natureza"
     $ score_mat += 3
     $ score_hum += 1
@@ -180,7 +185,8 @@ label semana_nat:
 label semana_spt:
 
     show link spt at top with dissolve:
-        zoom 0.6
+        zoom 0.4
+        yalign 0.3
     l "Fiz Exercícios"
     $ score_mat -= 1
     $ score_hum -= 1
@@ -194,7 +200,8 @@ label semana_spt:
 label semana_hum:
 
     show link hum at top with dissolve:
-        zoom 0.6
+        zoom 0.4
+        yalign 0.3
     l "Estudei Humanidades"
     $ score_mat += 0
     $ score_hum += 4
@@ -207,7 +214,8 @@ label semana_hum:
 label semana_art:
 
     show link art at top with dissolve:
-        zoom 0.6
+        zoom 0.4
+        yalign 0.3
     l "Estudei Artes"
     $ score_mat += 1
     $ score_hum += 1
@@ -401,9 +409,14 @@ label fds:
     show screen stats_screen
     l "Finalmente acabou a semana! O que posso fazer esse final de semana?"
 
-    show fmenu:
-        xalign 0 ypos 180
-        xzoom 0.85 yzoom 0.9
+    if namorada == 0 or semana % 5 == 0:
+        show fmenu:
+            xalign 0 ypos 180
+            xzoom 0.85 yzoom 0.9
+    else:
+        show fmenu:
+            xalign 0 ypos 180
+            xzoom 1.26 yzoom 0.9
     call screen fds_screen
 
     hide tmenu
@@ -444,7 +457,8 @@ label fds_rev:
 label fds_mus:
 
     show link mus at top with dissolve:
-        zoom 0.6
+        zoom 0.4
+        yalign 0.3
     l "Devo aproveitar esse fim de semana para continuar treinando as minhas habilidades com violino."
     $ score_mat += 1
     $ score_nat -= 2
@@ -455,6 +469,10 @@ label fds_mus:
     jump fds_done
 
 label fds_vid:
+
+    show link gamer at top with dissolve:
+        zoom 0.4
+        yalign 0.3
 
     l "Acho que não faz mal jogar um pouco de vez em quando"
     $ score_mat += 2
@@ -467,6 +485,10 @@ label fds_vid:
     jump fds_done
 
 label fds_des:
+
+    show link des at top with dissolve:
+        zoom 0.4
+        yalign 0.3
 
     l "Desenhar vai ser bem importante para me manter em prática mesmo durante o ano do EN"
     $ score_nat += 1
@@ -487,7 +509,7 @@ label fds_sair:
     $ score_spt -= 1
     $ score_art -= 1
     $ stress -= 6
-    if amigos == 1:
+    if amigos >= 1:
         $ saiu += 1
     if saiu == 8:
         jump inicio_namoro
@@ -508,6 +530,9 @@ label fds_fes:
 
 label fds_esp:
 
+    show link spt at top with dissolve:
+        zoom 0.4
+        yalign 0.3
     l "Também é importante praticar esportes para manter minha saúde"
     $ score_spt += 5
     $ stress -= 3
@@ -563,13 +588,6 @@ label fds_done:
 label EN:
 
     l "Finalmente chegou o dia do EN, agora preciso me concentrar e dar o meu melhor na prova"
-
-    python:
-
-        with open(os.path.join(renpy.config.gamedir, "relatorio" + nome_pers + ".txt" ), 'a') as f:
-            f.write('Semana: ' + str(semana) + '\nMatematica: ' + str(score_mat) + '\nLinguagens: ' + str(score_ling) + '\nNatureza: ' + str(score_nat) + '\nHumanas: ' + str(score_hum) + '\nArte: ' + str(score_art) + '\nEsportes: ' + str(score_spt))
-            f.write('\nStress: ' + str(stress) + '\n\n\n')
-        f.close()
     jump curso_calc
 
 label curso_calc:
@@ -785,6 +803,8 @@ label final_espt:
 label evento_amigos_0:
 
     scene bg sorv:
+    show sorvete:
+        xalign 0.4 yalign 0.7
     l "Depois de fazer esse simulado, já comecei a bolar estratégias de provas. Não adianta nada eu estudar muito se eu não responder as questões dentro do tempo."
     l "Irei comprar uma coxinha na cantina antes de ir para casa. Só tem uma pessoa na minha frente, não ficarei tanto tempo aqui e"
     l "{cps=1}....."
@@ -875,7 +895,15 @@ label evento_amigos_1:
     x "Vamos indo que a sorveteria fecha em menos de uma hora."
     scene white
     centered "Chegando na sorveteria"
-    scene bg sorv
+    scene bg sorv:
+    show sorvete:
+        xalign 0.4 yalign 0.7
+    show xirrark at right:
+        zoom 0.2
+        yalign 0.0
+    show iliana at left:
+        zoom 0.2
+        yalign 0.0
     x "[nome_pers], a minha recomendação é o que tem mochi, azuki e leite condensado. Vou pegar a porção de 250 mL porque não sou que nem a minha irmã."
     i "Como não sou como meu irmão, vou pegar a porção de 750 mL, que custa o dobro do preço, mas eu como o triplo do sorvete."
     l "Vou seguir a recomendação do Xirrark. Não estou preparado para comer muito hoje."
@@ -949,7 +977,7 @@ label evento_amigos_2:
 
 label evento_amigos_3:
 
-    l "Faltam apenas algumas semanas para o EN. Mesmo depois de fazer vários simulados não estou 100% seguro."
+    l "Faltam apenas algumas semanas para o EN. Mesmo depois de fazer vários simulados não estou 100\% seguro."
     show professor intro:
         xalign 1.0
         zoom 0.2
@@ -979,7 +1007,9 @@ label evento_amigos_3:
 
 label inicio_namoro:
 
-    scene bg sorv
+    scene bg sorv:
+    show sorvete:
+        xalign 0.4 yalign 0.7
     show xirrark at right:
         zoom 0.2
         yalign 0.0
@@ -1014,7 +1044,7 @@ label ending:
         centered "Iliana abriu um consultório e se tornou uma grande profissional"
     if namorada == 1 and fail == 0 and namorou >= 10 and pro == 0:
         centered "Mesmo depois de seguirem carreiras diferentes, Iliana e [nome_pers] mantiveram contato durante os estudos. Após a formatura, os dois foram contratados em sua área de formação."
-        centeres "Anos depois, se casaram com uma bela cerimônia, é dito que cachoeiras escorriam pelos olhos de Xirrark."
+        centered "Anos depois, se casaram com uma bela cerimônia, é dito que cachoeiras escorriam pelos olhos de Xirrark."
 
     jump creditos
 
@@ -1028,7 +1058,8 @@ label creditos:
     hide logo
     centered "Roteiro: Naoto"
     centered "Programação: Rogério(Sir)"
-    centered "Cenário/UI: "
-    centered "Design de personagem: "
+    centered "Cenário/UI: João Pedro"
+    centered "Design de personagem: Henrique Tadashi"
+    centerd "Música: Bounce Ball by Twin Musicom (twinmusicom.org)"
     centered "Agradecimentos especiais: thegamelogicist"
     return
