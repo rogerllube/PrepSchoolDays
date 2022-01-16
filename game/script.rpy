@@ -1060,6 +1060,6 @@ label creditos:
     centered "Programação: Rogério(Sir)"
     centered "Cenário/UI: João Pedro"
     centered "Design de personagem: Henrique Tadashi"
-    centerd "Música: Bounce Ball by Twin Musicom (twinmusicom.org)"
+    centered "Música: Bounce Ball by Twin Musicom (twinmusicom.org)"
     centered "Agradecimentos especiais: thegamelogicist"
     return
