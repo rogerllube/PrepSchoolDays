@@ -592,40 +592,40 @@ label EN:
 
 label curso_calc:
 
-    if esporte >= 30 and score_mat > 50 and score_nat > 50 and score_ling > 50 and score_hum > 50 and stress < 40:
+    if esporte >= 30 and score_mat > 40 and score_nat > 40 and score_ling > 40 and score_hum > 40 and stress < 40:
         jump final_spt
 
-    if jogou >= 30 and score_mat > 50 and score_nat > 50 and score_ling > 50 and score_hum > 50 and stress < 40:
+    if jogou >= 30 and score_mat > 40 and score_nat > 40 and score_ling > 40 and score_hum > 40 and stress < 40:
         jump final_espt
 
     scene white
     centered "{color=#000}Depois de 3 semanas da prova do EN, o dia da divulgação do resultado chegou.{/color}"
 
-    if score_mat > 100 and score_ling > 100 and score_hum > 70 and score_nat > 70 and jogou >= 15 and stress < 60:
+    if score_mat > 80 and score_ling > 80 and score_hum > 50 and score_nat > 50 and jogou >= 15 and stress < 60:
         jump final_bcc
 
-    if score_art > 110 and score_hum > 80 and score_mat > 70 and score_ling > 50 and score_nat > 50 and inst >= 20 and stress < 60:
+    if score_art > 90 and score_hum > 60 and score_mat > 50 and score_ling > 30 and score_nat > 30 and inst >= 20 and stress < 60:
         jump final_mus
 
-    if score_mat > 90 and score_nat > 100 and score_hum > 80 and score_ling > 100 and stress < 60:
+    if score_mat > 70 and score_nat > 80 and score_hum > 60 and score_ling > 80 and stress < 60:
         jump final_med
 
-    if score_mat > 110 and score_nat > 110 and score_hum > 60 and score_ling > 60 and stress < 60:
+    if score_mat > 90 and score_nat > 90 and score_hum > 40 and score_ling > 40 and stress < 60:
         jump final_eng
 
-    if score_hum > 110 and score_ling > 110 and score_hum > 60 and score_ling > 60 and stress < 60:
+    if score_hum > 90 and score_ling > 90 and score_hum > 40 and score_ling > 40 and stress < 60:
         jump final_dir
 
-    if score_spt > 120 and score_mat > 60 and score_nat > 60 and score_ling > 60 and score_hum > 60 and stress < 60:
+    if score_spt > 100 and score_mat > 40 and score_nat > 40 and score_ling > 40 and score_hum > 40 and stress < 60:
         jump final_edf
 
-    if score_art > 130 and score_mat > 60 and score_nat > 60 and score_hum > 60 and score_ling > 60 and stress < 60:
+    if score_art > 110 and score_mat > 40 and score_nat > 40 and score_hum > 40 and score_ling > 40 and stress < 60:
         jump final_artcen
 
-    if score_mat > 150 and score_nat > 50 and score_hum > 50 and score_ling > 50 and stress < 60:
+    if score_mat > 130 and score_nat > 30 and score_hum > 30 and score_ling > 30 and stress < 60:
         jump final_mat
 
-    if score_hum > 150 and score_nat > 50 and score_mat > 50 and score_ling > 50 and stress < 60:
+    if score_hum > 130 and score_nat > 30 and score_mat > 30 and score_ling > 30 and stress < 60:
         jump final_fil
 
     elif stress >= 60:
