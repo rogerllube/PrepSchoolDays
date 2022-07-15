@@ -1558,106 +1558,113 @@ screen stats_screen():
     if semana < 10:
         image "calendar [semana]" xalign 0.653 ypos 60
     else:
-        $ semana0 = semana/10
-        $ semana1 = semana%10
+        $ semana0 = int(semana/10)
+        $ semana1 = int(semana%10)
         image "calendar [semana0]" xalign 0.64 ypos 60
         image "calendar [semana1]" xalign 0.666 ypos 60
 
     if score_mat < 10:
+        $ score_mat = int(score_mat)
         image "stats [score_mat]" xalign 0.426 ypos 30
     elif score_mat < 100:
-        $ mat0 = score_mat/10
-        $ mat1 = score_mat%10
+        $ mat0 = int(score_mat/10)
+        $ mat1 = int(score_mat%10)
         image "stats [mat0]" xalign 0.417 ypos 30
         image "stats [mat1]" xalign 0.432 ypos 30
     else:
-        $ mat0 = score_mat/100
-        $ mat1 = (score_mat%100)/10
-        $ mat2 = score_mat%10
+        $ mat0 = int(score_mat/100)
+        $ mat1 = int((score_mat%100)/10)
+        $ mat2 = int(score_mat%10)
         image "stats [mat0]" xalign 0.41 ypos 30
         image "stats [mat1]" xalign 0.421 ypos 30
         image "stats [mat2]" xalign 0.437 ypos 30
 
 
     if score_ling < 10:
+        $ score_ling = int(score_ling)
         image "stats [score_ling]" xalign 0.492 ypos 30
     elif score_ling < 100:
-        $ ling0 = score_ling/10
-        $ ling1 = score_ling%10
+        $ ling0 = int(score_ling/10)
+        $ ling1 = int(score_ling%10)
         image "stats [ling0]" xalign 0.486 ypos 30
         image "stats [ling1]" xalign 0.502 ypos 30
     else:
-        $ ling0 = score_ling/100
-        $ ling1 = (score_ling%100)/10
-        $ ling2 = score_ling%10
+        $ ling0 = int(score_ling/100)
+        $ ling1 = int((score_ling%100)/10)
+        $ ling2 = int(score_ling%10)
         image "stats [ling0]" xalign 0.479 ypos 30
         image "stats [ling1]" xalign 0.49 ypos 30
         image "stats [ling2]" xalign 0.506 ypos 30
 
     if score_hum < 10:
+        $ score_hum = int(score_hum)
         image "stats [score_hum]" xalign 0.561 ypos 30
     elif score_hum < 100:
-        $ hum0 = score_hum/10
-        $ hum1 = score_hum%10
+        $ hum0 = int(score_hum/10)
+        $ hum1 = int(score_hum%10)
         image "stats [hum0]" xalign 0.552 ypos 30
         image "stats [hum1]" xalign 0.568 ypos 30
     else:
-        $ hum0 = score_hum/100
-        $ hum1 = (score_hum%100)/10
-        $ hum2 = score_hum%10
+        $ hum0 = int(score_hum/100)
+        $ hum1 = int((score_hum%100)/10)
+        $ hum2 = int(score_hum%10)
         image "stats [hum0]" xalign 0.545 ypos 30
         image "stats [hum1]" xalign 0.556 ypos 30
         image "stats [hum2]" xalign 0.572 ypos 30
 
 
     if score_nat < 10:
+        $ score_nat = int(score_nat)
         image "stats [score_nat]" xalign 0.426 ypos 90
     elif score_nat < 100:
-        $ nat0 = score_nat/10
-        $ nat1 = score_nat%10
+        $ nat0 = int(score_nat/10)
+        $ nat1 = int(score_nat%10)
         image "stats [nat0]" xalign 0.417 ypos 90
         image "stats [nat1]" xalign 0.432 ypos 90
     else:
-        $ nat0 = score_nat/100
-        $ nat1 = (score_nat%100)/10
-        $ nat2 = score_nat%10
+        $ nat0 = int(score_nat/100)
+        $ nat1 = int((score_nat%100)/10)
+        $ nat2 = int(score_nat%10)
         image "stats [nat0]" xalign 0.41 ypos 90
         image "stats [nat1]" xalign 0.421 ypos 90
         image "stats [nat2]" xalign 0.437 ypos 90
 
 
     if score_art < 10:
+        $ score_art = int(score_art)
         image "stats [score_art]" xalign 0.492 ypos 90
     elif score_art < 100:
-        $ art0 = score_art/10
-        $ art1 = score_art%10
+        $ art0 = int(score_art/10)
+        $ art1 = int(score_art%10)
         image "stats [art0]" xalign 0.486 ypos 90
         image "stats [art1]" xalign 0.502 ypos 90
     else:
-        $ art0 = score_art/100
-        $ art1 = (score_art%100)/10
-        $ art2 = score_art%10
+        $ art0 = int(score_art/100)
+        $ art1 = int((score_art%100)/10)
+        $ art2 = int(score_art%10)
         image "stats [art0]" xalign 0.479 ypos 90
         image "stats [art1]" xalign 0.49 ypos 90
         image "stats [art2]" xalign 0.506 ypos 90
 
     if score_spt < 10:
+        $ score_spt = int(score_spt)
         image "stats [score_spt]" xalign 0.561 ypos 90
     elif score_spt < 100:
-        $ spt0 = score_spt/10
-        $ spt1 = score_spt%10
+        $ spt0 = int(score_spt/10)
+        $ spt1 = int(score_spt%10)
         image "stats [spt0]" xalign 0.552 ypos 90
         image "stats [spt1]" xalign 0.568 ypos 90
     else:
-        $ spt0 = score_spt/100
-        $ spt1 = (score_spt%100)/10
-        $ spt2 = score_spt%10
+        $ spt0 = int(score_spt/100)
+        $ spt1 = int((score_spt%100)/10)
+        $ spt2 = int(score_spt%10)
         image "stats [spt0]" xalign 0.545 ypos 90
         image "stats [spt1]" xalign 0.556 ypos 90
         image "stats [spt2]" xalign 0.572 ypos 90
 
     $ stress_n = max(stress/20, 0)
     $ stress_n = min(stress_n, 4)
+    $ stress_n = int(stress_n)
 
     image "stress [stress_n]" xalign 0.335 ypos 45 zoom 0.9
 
